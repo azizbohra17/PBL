@@ -1,0 +1,27 @@
+{% extends "certificate/base.html" %}
+{% block content %}
+    <h1>Want to Generate?</h1>
+{#    {% for post in posts %}#}
+        <article class="media content-section">
+          <div class="media-body">
+{#            <div class="article-metadata">#}
+{#              <a class="mr-2" href="#">Certificate of Participation</a>#}
+{#              <small class="text-muted">{{ post.date_posted }}</small>#}
+{#            </div>#}
+{#              <div class="article-metadata">#}
+{#              <a class="mr-2" href="#">Letter of Appreciation</a>#}
+{#              <small class="text-muted">{{ post.date_posted }}</small>#}
+{#            </div>#}
+          <div>
+            <h2><a class="article-title" href="{% url 'certificate_participation' %}">Certificate of Participation</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+          <div>
+              <h2><a class="article-title" href="#">Letter of Appreciation</a></h2>
+              <p class="article-content">{{ post.content }}</p>
+          </div>
+        </div>
+
+        </article>
+{#    {% endfor %}#}
+{% endblock content %}
