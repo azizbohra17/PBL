@@ -39,4 +39,6 @@ urlpatterns = [
          name='password_reset_complete'),
     path('certificate-participation/', certificate_views.cop, name='certificate_participation'),
     path('home/', include('certificate.urls')),
+    path('single-multiple/', certificate_views.optionCertificate, name='certificate_for_option'),
+    path('multiple-participation/', certificate_views.excel_file_upload, name='multiple_participation'),
 ]

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .forms import CertificateOfParticipationForm
+from django.http import HttpResponse
+from .forms import CertificateOfParticipationForm,  MultipleForm
+from .functions import handle_uploaded_file
 
 posts = [
     {
@@ -40,3 +42,18 @@ def cop(request):
         print(name, fest, date, event_name)
 
     return render(request, 'certificate/certificate_participation.html', {'form': form})
+
+
+def optionCertificate(request):
+    return render(request, 'certificate/option_for_certificate.html')
+
+
+def excel_file_upload(request):
+    if request.method == 'POST':
+        student = MultipleForm(request.POST, request.FILES)
+        if student.is_valid():
+            handle_uploaded_file(request.FILES['file'])
+            return HttpResponse("File uploaded successfully")
+    else:
+        file = MultipleForm()
+        return render(request, 'certificate/multiple_participant.html', {'form': file})

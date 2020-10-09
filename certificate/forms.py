@@ -8,3 +8,6 @@ class CertificateOfParticipationForm(forms.Form):
     date = forms.DateField()
     event_name = forms.CharField()
 
+
+class MultipleForm(forms.Form):
+    excel_file = forms.FileField()
